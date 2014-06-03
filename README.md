@@ -1,6 +1,3 @@
-CS002---Lab-8
-=============
-
 /* START COMMENTS AND NOTES
  Alexander Woo, Kevin Ortiz
   Lab 8
@@ -21,11 +18,13 @@ CS002---Lab-8
   1. The program will read the inputs. The size will dictate the maximum
      size of the whatever shape is selected. The shape will dictate what
      shape will be outputted.
-  2. Could make individual "line" drawing functions to draw out the shapes.
+  2. Could make the individual shapes be their own separate modules.
   3. Pseudocode:
-     if (equal to shape)
-           if (size)
-               line-drawing function
+     if shape
+        for condition1; condition2 < condition2; ++condition1
+            for condition3; condition3 < condition1; ++condition3
+                cout star or space
+              
   OUTPUT:
   1. The output will be the selected shape with size appropriate to size.
   2. It will just output the * in a shape requested.
@@ -171,17 +170,24 @@ int main()
                 cout << "____________________________________________\n"
                      << "You requested a upside-down triangle?\n";
 
-                for (size_counter = 0; size_counter <= size; ++size_counter)
+                for (size_counter = size; size_counter >= 1; --size_counter)
                 {
-                    for (star_counter = 0; (star_counter < (size - size_counter)); ++star_counter)
+                    for (blank_counter = 0; (blank_counter < size - size_counter); ++blank_counter)
+                    {
+                        cout << " ";
+                    }
+
+                    for (star_counter = size_counter; star_counter <= 2 * size_counter - 1; ++star_counter)
                     {
                         cout << "*";
                     }
 
-                    for (blank_counter = size_counter; (blank_counter <= size); ++blank_counter)
+                    for (star_counter = 0; (star_counter < size_counter - 1); ++star_counter)
                     {
-                        cout << " ";
+                        cout << "*";
                     }
+
+
 
                     cout << "\n";
                 }
@@ -230,7 +236,6 @@ int main()
             // Return 0, end of program.
             return 0;
 }
-
 
 
 
